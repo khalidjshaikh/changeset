@@ -13,14 +13,11 @@ pipeline {
         }
         stage(‘Deploy’) { 
             steps {
-                parallel(
-                  a: {
-                    sh ""
-                  },
-                  b: {
-                    sh ""
-                  }
-                )
+                parallel {
+                  stage('dev'){steps{sh ''}}
+                  stage('stg'){steps{sh ''}}
+                  stage('prd'){steps{sh ''}}
+                }
             }
         }
     }
