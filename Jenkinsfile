@@ -13,7 +13,14 @@ pipeline {
         }
         stage(‘Deploy’) { 
             steps {
-                sh ""
+                parallel(
+                  a: {
+                    sh ""
+                  },
+                  b: {
+                    sh ""
+                  }
+                )
             }
         }
     }
